@@ -46,7 +46,11 @@ class Auth extends CI_Controller
                         'role_id' => $users['role_id']
                     ];
                     $this->session->set_userdata($data);
-                    redirect('admin');
+                    if ($users['role_id'] == 1) {
+                        redirect('superadmin');
+                    } else {
+                        redirect('admin');
+                    }
                 } else {
                     $this->session->set_flashdata(
                         'message',
