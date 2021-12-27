@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-user btn-block">
-                                Submit
+                                Buat Akun!
                             </button>
                             <hr>
                             <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
