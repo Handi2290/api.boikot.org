@@ -1,9 +1,9 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 use chriskacerguis\RestServer\RestController;
 
-class Login extends RestController 
+class Login extends RestController
 {
     public function __construct()
     {
@@ -13,7 +13,14 @@ class Login extends RestController
     public function index_get()
     {
         $users = $this->Users_model->getUsers();
-        var_dump($users);
+        // var_dump($users);
+        $users = $this->Users_model->getUsers();
+        // var_dump($crhdr);
+        if ($users) {
+            $this->response([
+                'status' => true,
+                'message' => $users
+            ], 200);
+        }
     }
 }
-
