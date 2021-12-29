@@ -16,4 +16,16 @@ class CR_Hdr extends CI_Model
         $this->db->delete('tbl_cr_hdr', ['cr_no_hdr' => $cr_no_hdr]);
         return $this->db->affected_rows();
     }
+
+    public function createCrHdr($data)
+    {
+        $this->db->insert('tbl_cr_hdr', $data);
+        return $this->db->affected_rows();
+    }
+
+    public function updateCrHdr($data, $cr_id_hdr)
+    {
+        $this->db->update('tbl_cr_hdr', $data, ['cr_id_hdr' => $cr_id_hdr]);
+        return $this->db->affected_rows();
+    }
 }

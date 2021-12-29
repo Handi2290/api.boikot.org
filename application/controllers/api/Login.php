@@ -23,4 +23,30 @@ class Login extends RestController
             ], 200);
         }
     }
+
+    public function index_post()
+    {
+        $data = [
+            'name' => $this->post('name'),
+            'email' => $this->post('email'),
+            'avatar' => $this->post('avatar'),
+            'role_id' => $this->post('role_id'),
+            'password' => $this->post('password'),
+            'is_active' => $this->post('is_active'),
+            'created_at' => $this->post('created_at')
+        ];
+
+        if ($this->Users_model->createUsers($data) > 0) {
+            $this->response([
+                'status' => true,
+                'message' => 'Akun Berhasil dibuat.'
+            ], 201);
+        } else {
+            $this->response([
+                'status' => false,
+                'message' => 'Akun Gagal dibuat!',
+                // 'data' => $data
+            ], 400);
+        }
+    }
 }
