@@ -26,7 +26,7 @@ class Costcode extends CI_Controller
             $this->load->view('templates/header', $data);
             $this->load->view('templates/sidebar', $data);
             $this->load->view('templates/topbar', $data);
-            $this->load->view('menu/costcode', $data);
+            $this->load->view('menu/costcode/index', $data);
             $this->load->view('templates/footer');
         } else {
             $data = [
@@ -50,8 +50,25 @@ class Costcode extends CI_Controller
 
     public function edit($id)
     {
-        $this->Costcode_model->edit($id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Costcode Berhasil diubah!</div>');
+        $data = [
+            'title' => 'Edit Costcode',
+            'code' => $this->Costcode_model->edit($id)
+        ];
+
+        $data['users'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
+
+        $id = $this->db->get('tbl_code', $id)->result();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/topbar', $data);
+        $this->load->view('menu/costcode/edit', $data);
+        $this->load->view('templates/footer');
+
+        
+
+        $this->db->update('tbl_code', $id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Costcode Berhasil ditambahkan!</div>');
         redirect('costcode');
     }
 }

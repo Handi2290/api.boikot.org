@@ -38,7 +38,7 @@
                             <td class="text-center"><?= $c['ranting']; ?></td>
                             <td class="text-center"><?= $c['uraian']; ?></td>
                             <td class="text-center">
-                                <!-- <a href="<?= $c['id'] ?>" class="badge badge-warning" data-toggle="modal" data-target="#edit">Edit</a> -->
+                                <a href="/costcode/edit/<?= $c['id'] ?>" class="badge badge-warning">Edit</a>
                                 <a href="/costcode/delete/<?= $c['id'] ?>" class="badge badge-danger">Delete</a>
                             </td>
                         </tr>
@@ -82,42 +82,6 @@
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control text-center" id="uraian" name="uraian" placeholder="Keterangan dari Nomor Kode">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="editLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="edit">Edit Cost Code</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="/costcode/edit/<?= $c['id'] ?>" method="POST">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input type="text" class="form-control text-center" id="project" name="project" placeholder="<?= $c['project']; ?>">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control text-center" id="induk" name="induk" placeholder="<?= $c['induk']; ?>">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control text-center" id="cabang" name="cabang" placeholder="<?= $c['cabang']; ?>">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control text-center" id="ranting" name="ranting" placeholder="<?= $c['ranting']; ?>">
-                    </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control text-center" id="uraian" name="uraian" placeholder="<?= $c['uraian']; ?>">
                     </div>
                 </div>
                 <div class="modal-footer">
