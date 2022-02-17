@@ -28,20 +28,22 @@ class Auth extends CI_Controller
     private function _login()
     {
         $email = $this->input->post('email');
-        $password = hash("sha256", $this->input->post('password'));
+        $password=hash('sha256',$_POST['password']);
+
         // $password = $this->input->post('password');
+        // $hashed = hash("sha256", $password);
 
         $users = $this->db->get_where('users', ['email' => $email])->row_array();
 
         // Cek Query DB
-        // var_dump($users);
+        // var_dump($email, $password);
         // die;
 
         if ($users) {
             // Usernya ada
             if ($users['is_active'] == 1) {
                 // Cek Password
-                if (password_verify($password, $users['password'])) {
+                if ($password == $users['password']) {
                     $data = [
                         'email' => $users['email'],
                         'role_id' => $users['role_id']
