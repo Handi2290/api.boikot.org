@@ -28,7 +28,8 @@ class Auth extends CI_Controller
     private function _login()
     {
         $email = $this->input->post('email');
-        $password = $this->input->post('password');
+        $password = hash("sha256", $this->input->post('password'));
+        // $password = $this->input->post('password');
 
         $users = $this->db->get_where('users', ['email' => $email])->row_array();
 
@@ -109,10 +110,7 @@ class Auth extends CI_Controller
                 'email' => htmlspecialchars($this->input->post('email', true)),
                 'avatar' => 'default.jpg',
                 'role_id' => 2,
-                'password' => password_hash(
-                    $this->input->post('password1'),
-                    PASSWORD_DEFAULT
-                ),
+                'password' => hash("sha256", $this->input->post('password1')),
                 'is_active' => 1,
                 'created_at' => time()
             ];

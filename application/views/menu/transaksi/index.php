@@ -34,12 +34,12 @@
                             <th scope="row" class="text-center"><?= $i; ?></th>
                             <td class="text-center"><?= $c['cr_no_hdr']; ?></td>
                             <td class="text-center">
-                                <a href="/transaksi/edit/<?= $c['cr_id_hdr'] ?>" class="badge badge-default">Cek Foto</a>
+                                <a href="/assets/transaksi/<?= $c['cr_foto'] ?>" class="badge badge-default">Cek Foto</a>
                             </td>
                             <td class="text-center"><?= $c['cr_tanggal']; ?></td>
                             <td class="text-center"><?= $c['cr_status']; ?></td>
                             <td class="text-center">
-                                <a href="/transaksi/edit/<?= $c['cr_id_hdr'] ?>" class="badge badge-warning">Edit</a>
+                                <a href="/transaksi/edit/<?= $c['cr_id_hdr'] ?>" class="badge badge-success">Unlock</a>
                                 <a href="/transaksi/delete/<?= $c['cr_id_hdr'] ?>" class="badge badge-danger">Delete</a>
                             </td>
                         </tr>
