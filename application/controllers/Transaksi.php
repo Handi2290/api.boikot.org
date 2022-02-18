@@ -67,7 +67,14 @@ class Transaksi extends CI_Controller
 
 
         $this->db->update('tbl_cr_hdr', $id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">CR Baru Berhasil ditambahkan!</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">CR Berhasil diubah!</div>');
+        redirect('transaksi');
+    }
+
+    public function unlock($id)
+    {
+        $this->Transaksi_model->update($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">CR Berhasil di unlock!</div>');
         redirect('transaksi');
     }
 }

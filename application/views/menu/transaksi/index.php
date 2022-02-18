@@ -39,7 +39,8 @@
                             <td class="text-center"><?= $c['cr_tanggal']; ?></td>
                             <td class="text-center"><?= $c['cr_status']; ?></td>
                             <td class="text-center">
-                                <a href="/transaksi/edit/<?= $c['cr_id_hdr'] ?>" class="badge badge-success">Unlock</a>
+                                <a href="/transaksi/<?= $c['cr_id_hdr'] ?>" class="badge badge-primary">Detail</a>
+                                <a href="/transaksi/unlock/<?= $c['cr_id_hdr'] ?>" class="badge badge-success">Unlock</a>
                                 <a href="/transaksi/delete/<?= $c['cr_id_hdr'] ?>" class="badge badge-danger">Delete</a>
                             </td>
                         </tr>

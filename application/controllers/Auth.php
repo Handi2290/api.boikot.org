@@ -28,7 +28,7 @@ class Auth extends CI_Controller
     private function _login()
     {
         $email = $this->input->post('email');
-        $password=hash('sha256',$_POST['password']);
+        $password = hash('sha256', $_POST['password']);
 
         // $password = $this->input->post('password');
         // $hashed = hash("sha256", $password);
