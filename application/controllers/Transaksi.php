@@ -47,16 +47,16 @@ class Transaksi extends CI_Controller
         redirect('transaksi');
     }
 
-    public function edit($id)
+    public function detail($id)
     {
         $data = [
-            'title' => 'Edit CR',
-            'cr' => $this->Transaksi_model->edit($id)
+            'title' => 'Detail CR',
+            'cr' => $this->Transaksi_model->detail($id)
         ];
 
         $data['users'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
-        $id = $this->db->get('tbl_code', $id)->result();
+        $id = $this->db->get('tbl_cr_dtl', $id)->result();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
