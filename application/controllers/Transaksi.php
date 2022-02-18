@@ -49,26 +49,16 @@ class Transaksi extends CI_Controller
 
     public function detail($id)
     {
-        $data = [
-            'title' => 'Detail CR',
-            'cr' => $this->Transaksi_model->detail($id)
-        ];
+        $data['title'] = 'Detail CR';
+        $data['detail'] = $this->Transaksi_model->detail($id);
 
         $data['users'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
-
-        $id = $this->db->get('tbl_cr_dtl', $id)->result();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $data);
         $this->load->view('templates/topbar', $data);
-        $this->load->view('menu/transaksi/edit', $data);
+        $this->load->view('menu/transaksi/detail', $data);
         $this->load->view('templates/footer');
-
-
-
-        $this->db->update('tbl_cr_hdr', $id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">CR Berhasil diubah!</div>');
-        redirect('transaksi');
     }
 
     public function unlock($id)

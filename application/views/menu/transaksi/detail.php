@@ -4,7 +4,6 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800"><?= $title; ?></h1>
 
-
     <div class="row">
         <div class="col-lg">
             <?php if (validation_errors()) : ?>
@@ -13,36 +12,23 @@
                 </div>
             <?php endif; ?>
 
-            <!-- <a href="" class="btn btn-primary mb-3" data-toggle="modal" data-target="#tambahCode">Buat CR Baru</a> -->
-            <a href="" class="btn btn-primary mb-3">Cari Nomor CR</a>
-
             <table class="table table-hover">
                 <thead>
                     <tr>
                         <th class="text-center" scope="col">#</th>
-                        <th class="text-center" scope="col">Nomor CR</th>
-                        <th class="text-center" scope="col">Foto</th>
                         <th class="text-center" scope="col">Tanggal</th>
-                        <th class="text-center" scope="col">Status</th>
-                        <th class="text-center" scope="col">Action</th>
+                        <th class="text-left" scope="col">Nominal</th>
+                        <th class="text-center" scope="col">Uraian</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1; ?>
-                    <?php foreach ($cr as $c) : ?>
+                    <?php foreach ($detail as $d) : ?>
                         <tr>
                             <th scope="row" class="text-center"><?= $i; ?></th>
-                            <td class="text-center"><?= $c['cr_no_hdr']; ?></td>
-                            <td class="text-center">
-                                <a href="/assets/transaksi/<?= $c['cr_foto'] ?>" class="badge badge-default">Cek Foto</a>
-                            </td>
-                            <td class="text-center"><?= $c['cr_tanggal']; ?></td>
-                            <td class="text-center"><?= $c['cr_status']; ?></td>
-                            <td class="text-center">
-                                <a href="/transaksi/detail/<?= $c['cr_id_hdr'] ?>" class="badge badge-primary">Detail</a>
-                                <a href="/transaksi/unlock/<?= $c['cr_id_hdr'] ?>" class="badge badge-success">Unlock</a>
-                                <a href="/transaksi/delete/<?= $c['cr_id_hdr'] ?>" class="badge badge-danger">Delete</a>
-                            </td>
+                            <td class="text-center"><?= $d['cr_tanggal']; ?></td>
+                            <td class="text-left">Rp. <?= number_format($d['cr_dtl_nominal']); ?></td>
+                            <td class="text-center"><?= $d['cr_uraian']; ?></td>
                         </tr>
                         <?php $i++ ?>
                     <?php endforeach; ?>
