@@ -28,7 +28,7 @@
                             <td><?= $m['menu']; ?></td>
                             <td>
                                 <a href="" class="badge badge-warning">Edit</a>
-                                <a href="" class="badge badge-danger">Delete</a>
+                                <a href="/menu/delete/<?= $m['id'] ?>" class="badge badge-danger">Delete</a>
                             </td>
                         </tr>
                         <?php $i++ ?>

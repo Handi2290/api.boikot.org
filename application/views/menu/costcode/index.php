@@ -38,7 +38,7 @@
                             <td class="text-center"><?= $c['ranting']; ?></td>
                             <td class="text-center"><?= $c['uraian']; ?></td>
                             <td class="text-center">
-                                <a href="/costcode/edit/<?= $c['id'] ?>" class="badge badge-warning">Edit</a>
+                                <a href="/costcode/edit/<?= $c['id'] ?>" class="badge badge-primary">Detail</a>
                                 <a href="/costcode/delete/<?= $c['id'] ?>" class="badge badge-danger">Delete</a>
                             </td>
                         </tr>

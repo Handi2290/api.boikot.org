@@ -13,7 +13,8 @@
                 </div>
             <?php endif; ?>
 
-            <form action="/costcode/edit/ <?= $code['id'] ?> ">
+            <form action="" method="post">
+                <input type="hidden" name="id" value="<?= $code['id'];?>">
                 <div class="form-group row">
                     <label for="project" class="col-sm-2 col-form-label">Project</label>
                     <div class="col-sm-10">
@@ -39,7 +40,7 @@
             </form>
 
             <div>
-                <button type="submit" class="btn btn-primary">Simpan</button>
+                <button type="submit" name="edit" class="btn btn-primary">Simpan</button>
             </div>
         </div>
     </div>

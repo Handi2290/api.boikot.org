@@ -59,16 +59,23 @@ class Costcode extends CI_Controller
 
         $id = $this->db->get('tbl_code', $id)->result();
 
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/topbar', $data);
-        $this->load->view('menu/costcode/edit', $data);
-        $this->load->view('templates/footer');
+        $this->form_validation->set_rules('project', 'Project', 'required');
+        $this->form_validation->set_rules('induk', 'Induk', 'required');
+        $this->form_validation->set_rules('cabang', 'Cabang', 'required');
+        $this->form_validation->set_rules('ranting', 'Ranting', 'required');
+        $this->form_validation->set_rules('uraian', 'Uraian', 'required');
 
-        
-
-        $this->db->update('tbl_code', $id);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Costcode Berhasil ditambahkan!</div>');
-        redirect('costcode');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/topbar', $data);
+            $this->load->view('menu/costcode/edit', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Costcode_model->simpan();
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Costcode Berhasil diubah!</div>');
+            redirect('costcode');
+        }
     }
+
 }
